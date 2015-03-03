@@ -28,12 +28,6 @@ public class MPFormatter {
         var output:String = ""
         
         for (idx, char) in enumerate(input) {
-            if(idx == countElements(input)){
-                // Stop all links, styles and colors
-                self.stopAllColors(countElements(output))
-                self.stopAllLinks(countElements(output))
-                self.stopAllStyles(countElements(output))
-            }
             if(char == "$" && countElements(input) > idx){
                 let type = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 1), end: advance(input.startIndex, idx + 2)))
                 
@@ -135,13 +129,19 @@ public class MPFormatter {
                     break
                     
                 }
-                //println(type)
             }else{
                 if let skip = find(ignore, idx) {
                     // Skip this char
                 }else{
                     output.append(char)
                 }
+            }
+            
+            // Stop all attributes if we are on the end of the string
+            if(idx+1 == countElements(input) && countElements(input) != 0){
+                self.stopAllColors(countElements(output))
+                self.stopAllLinks(countElements(output))
+                self.stopAllStyles(countElements(output))
             }
         }
         
@@ -178,33 +178,33 @@ public class MPFormatter {
     }
     
     private func stopAllLinks(endIndex:Int) {
-        if let last = self.links.last {
-            if(last.end == 0){
-                last.end = endIndex
+        for item in self.links {
+            if(item.end == 0){
+                item.end = endIndex
             }
         }
     }
     
     private func stopAllColors(endIndex:Int) {
-        if let last = self.colors.last {
-            if(last.end == 0){
-                last.end = endIndex
+        for item in self.colors {
+            if(item.end == 0){
+                item.end = endIndex
             }
         }
     }
     
     private func stopAllStyles(endIndex:Int) {
-        if let last = self.styles.last {
-            if(last.end == 0){
-                last.end = endIndex
+        for item in self.styles {
+            if(item.end == 0){
+                item.end = endIndex
             }
         }
     }
     
     private func stopAllStylesOfType(type:MPFontStyle, endIndex:Int) {
-        if let last = self.styles.last {
-            if(last.end == 0 && last.style == type){
-                last.end = endIndex
+        for item in self.styles {
+            if(item.end == 0 && item.style == type){
+                item.end = endIndex
             }
         }
     }
