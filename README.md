@@ -7,7 +7,7 @@ To use the framework you have to link the framework with the target of your app.
  1. Copy the files to a directory in your project folder
  2. Drag and drop the xcodeproj file to the project navigator, just under your app project
  3. Go to your App target
- 4. Click on the + in the general tab under linked frameworks and libraries
+ 4. Click on the + in the general tab under embedded binaries
  5. Select MPFormatter and click OK
  6. Now you can use MPFormatter with import MPFormatter
 
