@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum MPFontStyle {
+public enum MPFontStyle {
     case Italic, Bold, Shadow, Wide, Big, Small
 }
 
@@ -20,9 +20,11 @@ public class MPFormatter {
     var links:[MPLink] = []
     var ignore:[Int] = []
     
+    public init() {
+        
+    }
     
-    
-    func parseString(input:String, fontSize:Double) -> NSAttributedString {
+    public func parseString(input:String, fontSize:Double) -> NSAttributedString {
         var output:String = ""
         
         for (idx, char) in enumerate(input) {
