@@ -14,7 +14,21 @@ To use the framework you have to link the framework with the target of your app.
 To get the NSAttributedString from a styled nickname for example, use:
 
     let nickname = "$F80$i$S$oToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l"
-    let styledNickname = MPFormatter().parseString(nickname, fontSize: 17.0)
+    let styledNickname = MPFormatter().parse(input: nickname).getAttributedString()
 
 This will result in:
 ![Example result from above code](https://raw.githubusercontent.com/tomvlk/MPFormatter_swift/master/example.png "Example result")
+
+
+
+You can also strip links, styles or colors with
+
+	let nickname = "$F80$i$S$oToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l"
+    let noLinks = MPFormatter().parse(input: nickname).stripLinks().getAttributedString()
+    let noColors = MPFormatter().parse(input: nickname).stripColors().getAttributedString()
+    let plainString:String = MPFormatter().parse(input: nickname).getString() // Get plain string, without any styles
+
+    // Get nickname with font size 11
+    let tinyNickname = MPFormatter(fontSize: CGFloat(11)).parse(input: nickname).getAttributedString()
+
+
