@@ -20,13 +20,102 @@ public class MPFormatter {
     var links:[MPLink] = []
     var ignore:[Int] = []
     
+    var fontSize:CGFloat = UIFont.systemFontSize()
+    
     public init() {
         
     }
     
-    public func parseString(input:String, fontSize:Double) -> NSAttributedString {
+    public init(fontSize: CGFloat) {
+        self.fontSize = fontSize
+    }
+    
+    public class MPFormattedString {
+        
+        private var formatter:MPFormatter
+        private var output:String
+        
+        private var parseColors = true
+        private var parseLinks = true
+        private var parseStyles = true
+        
+        init(fromFormatter: MPFormatter, outputString:String) {
+            self.formatter = fromFormatter
+            self.output = outputString
+        }
+        
+        public func stripLinks() {
+            self.parseLinks = false
+        }
+        
+        public func stripAll() {
+            self.parseColors = false
+            self.parseLinks = false
+            self.parseStyles = false
+        }
+        
+        public func stripStyles() {
+            self.parseStyles = false
+        }
+        
+        public func stripColors() {
+            self.parseColors = false
+        }
+        
+        public func getAttributedString() -> NSAttributedString {
+            return self.parseFormatted(self.output)
+        }
+        
+        public func getString() -> String {
+            return self.output
+        }
+        
+        private func parseFormatted(output:String) -> NSAttributedString {
+            // Make the mutable attributed string
+            var outputStyled = NSMutableAttributedString(string: self.output)
+            
+            // Apply default font
+            let defaultFont = UIFont.systemFontOfSize(formatter.fontSize)
+            outputStyled.addAttribute(NSFontAttributeName, value: defaultFont, range: NSRange(location: 0, length: outputStyled.length))
+            
+            // Apply colors
+            if(self.parseColors) {
+                // Colors
+                for color in self.formatter.colors {
+                    if(color.end != 0){
+                        color.apply(&outputStyled)
+                    }
+                }
+            }
+            
+            // Apply styles
+            if(self.parseStyles) {
+                // Styles
+                for style in self.formatter.styles {
+                    if(style.end != 0){
+                        style.apply(&outputStyled)
+                    }
+                }
+            }
+            
+            // Apply links
+            if(self.parseLinks) {
+                // Links
+                for link in self.formatter.links {
+                    if(link.end != 0){
+                        link.apply(&outputStyled)
+                    }
+                }
+            }
+            
+            return outputStyled
+        }
+    }
+    
+    public func parse(#input:String) -> MPFormattedString {
         var output:String = ""
         
+        // Parse the styles in the input string
         for (idx, char) in enumerate(input) {
             if(char == "$" && countElements(input) > idx){
                 let type = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 1), end: advance(input.startIndex, idx + 2)))
@@ -34,6 +123,7 @@ public class MPFormatter {
                 // By default, always skip next char
                 ignore.append(idx + 1)
                 
+                // Decide the type of styling
                 switch(type){
                     // Links
                 case "l", "L", "m", "M":
@@ -145,36 +235,8 @@ public class MPFormatter {
             }
         }
         
-        var outputStyled = NSMutableAttributedString(string: output)
-        
-        // Apply default font first
-        let defaultFont = UIFont.systemFontOfSize(CGFloat(fontSize))
-        outputStyled.addAttribute(NSFontAttributeName, value: defaultFont, range: NSRange(location: 0, length: outputStyled.length))
-        
-        // Add all styles in attributed string
-        
-        // Colors
-        for color in self.colors {
-            if(color.end != 0){
-                color.apply(&outputStyled)
-            }
-        }
-        
-        // Links
-        for link in self.links {
-            if(link.end != 0){
-                link.apply(&outputStyled)
-            }
-        }
-        
-        // Styles
-        for style in self.styles {
-            if(style.end != 0){
-                style.apply(&outputStyled)
-            }
-        }
-        
-        return outputStyled
+        // Make the formattedstring class, return it
+        return MPFormattedString(fromFormatter: self, outputString: output)
     }
     
     private func stopAllLinks(endIndex:Int) {
