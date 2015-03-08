@@ -44,26 +44,30 @@ public class MPFormatter {
         }
         
         /// Strip all the links
-        public func stripLinks() {
+        public func stripLinks() -> MPFormattedString {
             self.parseLinks = false
+            return self
         }
         
         /// Strip all the styles, links and colors
         /// You can also use getString() to only get the plain text string back
-        public func stripAll() {
+        public func stripAll() -> MPFormattedString {
             self.parseColors = false
             self.parseLinks = false
             self.parseStyles = false
+            return self
         }
         
         /// Strip all styles
-        public func stripStyles() {
+        public func stripStyles() -> MPFormattedString {
             self.parseStyles = false
+            return self
         }
         
         /// Strip all colors
-        public func stripColors() {
+        public func stripColors() -> MPFormattedString {
             self.parseColors = false
+            return self
         }
         
         /// Get Attributed String back
@@ -121,7 +125,7 @@ public class MPFormatter {
     }
     
     /// Parse the input string
-    /// 
+    ///
     /// :param: input The input string with $ styles
     ///
     /// :returns: MPFormattedString
