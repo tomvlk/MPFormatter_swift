@@ -2,8 +2,7 @@
 //  MPFormatter.swift
 //  MPFormatter
 //
-//  Created by Tom Valk on 03-03-15.
-//  Copyright (c) 2015 Tom Valk. All rights reserved.
+//  MIT Licensed, 2015, Tom Valk
 //
 
 import Foundation
@@ -44,28 +43,37 @@ public class MPFormatter {
             self.output = outputString
         }
         
+        /// Strip all the links
         public func stripLinks() {
             self.parseLinks = false
         }
         
+        /// Strip all the styles, links and colors
+        /// You can also use getString() to only get the plain text string back
         public func stripAll() {
             self.parseColors = false
             self.parseLinks = false
             self.parseStyles = false
         }
         
+        /// Strip all styles
         public func stripStyles() {
             self.parseStyles = false
         }
         
+        /// Strip all colors
         public func stripColors() {
             self.parseColors = false
         }
         
+        /// Get Attributed String back
+        /// :returns: Attributed String
         public func getAttributedString() -> NSAttributedString {
             return self.parseFormatted(self.output)
         }
         
+        /// Get Plain String back
+        /// :returns: Stripped string
         public func getString() -> String {
             return self.output
         }
@@ -112,6 +120,11 @@ public class MPFormatter {
         }
     }
     
+    /// Parse the input string
+    /// 
+    /// :param: input The input string with $ styles
+    ///
+    /// :returns: MPFormattedString
     public func parse(#input:String) -> MPFormattedString {
         var output:String = ""
         

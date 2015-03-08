@@ -2,8 +2,7 @@
 //  MPStyles.swift
 //  MPFormatter
 //
-//  Created by Tom Valk on 03-03-15.
-//  Copyright (c) 2015 Tom Valk. All rights reserved.
+//  MIT Licensed, 2015, Tom Valk
 //
 
 import Foundation
