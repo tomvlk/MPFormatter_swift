@@ -134,7 +134,7 @@ public class MPFormatter {
         
         // Parse the styles in the input string
         for (idx, char) in enumerate(input) {
-            if(char == "$" && countElements(input) > idx){
+            if(char == "$" && countElements(input) > idx+1){
                 let type = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 1), end: advance(input.startIndex, idx + 2)))
                 
                 // By default, always skip next char
