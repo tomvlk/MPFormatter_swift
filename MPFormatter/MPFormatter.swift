@@ -143,7 +143,7 @@ public class MPFormatter {
                 // Decide the type of styling
                 switch(type){
                     // Links
-                case "l", "L", "m", "M":
+                case "l", "L", "m", "M", "h", "H":
                     self.stopAllLinks(countElements(output))
                     
                     // Get destination
