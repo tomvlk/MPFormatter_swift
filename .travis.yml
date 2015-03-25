@@ -1,4 +1,8 @@
 language: objective-c
-xcode_project: MPFormatter.xcodeproj
-xcode_scheme: MPFormatterTests
 
+before_install: 
+- brew update
+- if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+
+script: 
+- xctool clean build -project MPFormatter.xcodeproj -scheme MPFormatter
