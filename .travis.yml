@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: MPFormatter.xcodeproj
+xcode_scheme: MPFormatterTests
+

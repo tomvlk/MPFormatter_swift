@@ -13,7 +13,19 @@
 		FC9ACE201AA5D9E900C2915B /* MPStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1F1AA5D9E900C2915B /* MPStyle.swift */; };
 		FC9ACE221AA5DA2A00C2915B /* MPLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE211AA5DA2A00C2915B /* MPLink.swift */; };
 		FC9ACE241AA5DA4400C2915B /* MPFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE231AA5DA4400C2915B /* MPFormatter.swift */; };
+		FCC12C931AC34BED00221A56 /* MPFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC12C921AC34BED00221A56 /* MPFormatterTests.swift */; };
+		FCC12C941AC34BED00221A56 /* MPFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCC12C951AC34BED00221A56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC9ACDF31AA5D8A900C2915B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC9ACDFB1AA5D8A900C2915B;
+			remoteInfo = MPFormatter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +36,9 @@
 		FC9ACE1F1AA5D9E900C2915B /* MPStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPStyle.swift; sourceTree = "<group>"; };
 		FC9ACE211AA5DA2A00C2915B /* MPLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPLink.swift; sourceTree = "<group>"; };
 		FC9ACE231AA5DA4400C2915B /* MPFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPFormatter.swift; sourceTree = "<group>"; };
+		FCC12C8E1AC34BED00221A56 /* MPFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MPFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC12C911AC34BED00221A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC12C921AC34BED00221A56 /* MPFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +49,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCC12C8B1AC34BED00221A56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC12C941AC34BED00221A56 /* MPFormatter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9ACDFE1AA5D8A900C2915B /* MPFormatter */,
+				FCC12C8F1AC34BED00221A56 /* MPFormatterTests */,
 				FC9ACDFD1AA5D8A900C2915B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */,
+				FCC12C8E1AC34BED00221A56 /* MPFormatterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,23 @@
 			name = Styles;
 			sourceTree = "<group>";
 		};
+		FCC12C8F1AC34BED00221A56 /* MPFormatterTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCC12C921AC34BED00221A56 /* MPFormatterTests.swift */,
+				FCC12C901AC34BED00221A56 /* Supporting Files */,
+			);
+			path = MPFormatterTests;
+			sourceTree = "<group>";
+		};
+		FCC12C901AC34BED00221A56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCC12C911AC34BED00221A56 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -115,6 +157,24 @@
 			productReference = FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FCC12C8D1AC34BED00221A56 /* MPFormatterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCC12C991AC34BED00221A56 /* Build configuration list for PBXNativeTarget "MPFormatterTests" */;
+			buildPhases = (
+				FCC12C8A1AC34BED00221A56 /* Sources */,
+				FCC12C8B1AC34BED00221A56 /* Frameworks */,
+				FCC12C8C1AC34BED00221A56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCC12C961AC34BED00221A56 /* PBXTargetDependency */,
+			);
+			name = MPFormatterTests;
+			productName = MPFormatterTests;
+			productReference = FCC12C8E1AC34BED00221A56 /* MPFormatterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -126,6 +186,9 @@
 				TargetAttributes = {
 					FC9ACDFB1AA5D8A900C2915B = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					FCC12C8D1AC34BED00221A56 = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -142,12 +205,20 @@
 			projectRoot = "";
 			targets = (
 				FC9ACDFB1AA5D8A900C2915B /* MPFormatter */,
+				FCC12C8D1AC34BED00221A56 /* MPFormatterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FC9ACDFA1AA5D8A900C2915B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC12C8C1AC34BED00221A56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -169,7 +240,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCC12C8A1AC34BED00221A56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC12C931AC34BED00221A56 /* MPFormatterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCC12C961AC34BED00221A56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC9ACDFB1AA5D8A900C2915B /* MPFormatter */;
+			targetProxy = FCC12C951AC34BED00221A56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FC9ACE101AA5D8AA00C2915B /* Debug */ = {
@@ -292,6 +379,39 @@
 			};
 			name = Release;
 		};
+		FCC12C971AC34BED00221A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MPFormatterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FCC12C981AC34BED00221A56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MPFormatterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -309,6 +429,15 @@
 			buildConfigurations = (
 				FC9ACE131AA5D8AA00C2915B /* Debug */,
 				FC9ACE141AA5D8AA00C2915B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCC12C991AC34BED00221A56 /* Build configuration list for PBXNativeTarget "MPFormatterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCC12C971AC34BED00221A56 /* Debug */,
+				FCC12C981AC34BED00221A56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
