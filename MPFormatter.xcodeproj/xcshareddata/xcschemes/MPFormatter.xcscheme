@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FC9ACE061AA5D8AA00C2915B"
+               BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
                BuildableName = "MPFormatterTests.xctest"
                BlueprintName = "MPFormatterTests"
                ReferencedContainer = "container:MPFormatter.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FC9ACE061AA5D8AA00C2915B"
+               BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
                BuildableName = "MPFormatterTests.xctest"
                BlueprintName = "MPFormatterTests"
                ReferencedContainer = "container:MPFormatter.xcodeproj">
