@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tomvlk/MPFormatter_swift.png)](https://travis-ci.org/tomvlk/MPFormatter_swift)
+
 # MPFormatter_swift
 A ManiaPlanet Color Style parser and formatter for Swift
 
