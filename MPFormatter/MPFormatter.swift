@@ -134,7 +134,7 @@ public class MPFormatter {
         
         // Parse the styles in the input string
         for (idx, char) in enumerate(input) {
-            if(char == "$" && countElements(input) > idx+1){
+            if(char == "$" && count(input) > idx+1){
                 let type = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 1), end: advance(input.startIndex, idx + 2)))
                 
                 // By default, always skip next char
@@ -144,23 +144,23 @@ public class MPFormatter {
                 switch(type){
                     // Links
                 case "l", "L", "m", "M", "h", "H":
-                    self.stopAllLinks(countElements(output))
+                    self.stopAllLinks(count(output))
                     
                     // Get destination
-                    if(countElements(input) > idx + 2){
+                    if(count(input) > idx + 2){
                         let after = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 2), end: advance(input.startIndex, idx + 3)))
-                        if(after == "[" && countElements(input) > idx + 3) {
+                        if(after == "[" && count(input) > idx + 3) {
                             // link invisible
                             // Get end position (])
                             if let endPoint: Range<String.Index> = input.rangeOfString("]", options: NSStringCompareOptions.allZeros, range: Range<String.Index>(start: advance(input.startIndex, idx + 3), end: input.endIndex), locale: nil) {
                                 let url = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 3), end: endPoint.endIndex.predecessor()))
                                 if let urlDest = NSURL(string: url) {
-                                    let link = MPLink(destination: urlDest, startIndex: countElements(output))
+                                    let link = MPLink(destination: urlDest, startIndex: count(output))
                                     self.links.append(link)
                                 }
                                 
                                 // Ignore all the url stuff [http://]
-                                for skip in 0...countElements(url)+1 {
+                                for skip in 0...count(url)+1 {
                                     ignore.append(idx + 2 + skip)
                                 }
                             }
@@ -176,58 +176,58 @@ public class MPFormatter {
                     
                     // Small
                 case "n", "N":
-                    self.stopAllStylesOfType(MPFontStyle.Big, endIndex: countElements(output))
-                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: countElements(output))
-                    self.stopAllStylesOfType(MPFontStyle.Small, endIndex: countElements(output))
-                    let styl = MPStyle(style: MPFontStyle.Small, startIndex: countElements(output), fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.Big, endIndex: count(output))
+                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: count(output))
+                    self.stopAllStylesOfType(MPFontStyle.Small, endIndex: count(output))
+                    let styl = MPStyle(style: MPFontStyle.Small, startIndex: count(output), fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Italic
                 case "i", "I":
-                    self.stopAllStylesOfType(MPFontStyle.Italic, endIndex: countElements(output))
-                    let styl = MPStyle(style: MPFontStyle.Italic, startIndex: countElements(output), fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.Italic, endIndex: count(output))
+                    let styl = MPStyle(style: MPFontStyle.Italic, startIndex: count(output), fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Bold
                 case "o", "O":
-                    self.stopAllStylesOfType(MPFontStyle.Bold, endIndex: countElements(output))
-                    let styl = MPStyle(style: MPFontStyle.Bold, startIndex: countElements(output), fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.Bold, endIndex: count(output))
+                    let styl = MPStyle(style: MPFontStyle.Bold, startIndex: count(output), fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Shadow
                 case "s", "S":
-                    self.stopAllStylesOfType(MPFontStyle.Shadow, endIndex: countElements(output))
+                    self.stopAllStylesOfType(MPFontStyle.Shadow, endIndex: count(output))
                     //let styl = MPStyle(style: MPFontStyle.Shadow, startIndex: countElements(output), fontSize: CGFloat(fontSize))
                     //self.styles.append(styl)
                     break
                     
                     // Wide
                 case "w", "W":
-                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: countElements(output))
-                    let styl = MPStyle(style: MPFontStyle.Wide, startIndex: countElements(output), fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: count(output))
+                    let styl = MPStyle(style: MPFontStyle.Wide, startIndex: count(output), fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                 case "g", "G":
-                    self.stopAllColors(countElements(output))
+                    self.stopAllColors(count(output))
                     break
                 case "z", "Z":
-                    self.stopAllColors(countElements(output))
-                    self.stopAllLinks(countElements(output))
-                    self.stopAllStyles(countElements(output))
+                    self.stopAllColors(count(output))
+                    self.stopAllLinks(count(output))
+                    self.stopAllStyles(count(output))
                     
                     break
                 case "<", ">":
                     // ignore
                     break
                 default:
-                    self.stopAllColors(countElements(output))
+                    self.stopAllColors(count(output))
                     
-                    if(countElements(input) > idx+3){
+                    if(count(input) > idx+3){
                         let colorstring = input.substringWithRange(Range<String.Index>(start: advance(input.startIndex, idx + 1), end: advance(input.startIndex, idx + 4)))
-                        if let color = MPColor.isColor(colorstring, startIndex: countElements(output)) {
+                        if let color = MPColor.isColor(colorstring, startIndex: count(output)) {
                             colors.append(color)
                             ignore.append(idx + 2)
                             ignore.append(idx + 3)
@@ -245,10 +245,10 @@ public class MPFormatter {
             }
             
             // Stop all attributes if we are on the end of the string
-            if(idx+1 == countElements(input) && countElements(input) != 0){
-                self.stopAllColors(countElements(output))
-                self.stopAllLinks(countElements(output))
-                self.stopAllStyles(countElements(output))
+            if(idx+1 == count(input) && count(input) != 0){
+                self.stopAllColors(count(output))
+                self.stopAllLinks(count(output))
+                self.stopAllStyles(count(output))
             }
         }
         
