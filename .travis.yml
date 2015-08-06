@@ -6,4 +6,4 @@ before_install:
 - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
 script: 
-- xctool clean build -project MPFormatter.xcodeproj -scheme MPFormatter
+- xctool clean build -project MPFormatter.xcodeproj -scheme MPFormatter CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
