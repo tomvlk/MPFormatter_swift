@@ -129,7 +129,7 @@ public class MPFormatter {
     /// - parameter input: The input string with $ styles
     ///
     /// - returns: MPFormattedString
-    public func parse(input input:String) -> MPFormattedString {
+    public func parse(input:String) -> MPFormattedString {
         var output:String = ""
         
         // Parse the styles in the input string
