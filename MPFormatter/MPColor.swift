@@ -25,8 +25,8 @@ class MPColor:MPStyles {
     }
     
     class func isColor(input:String, startIndex:Int) -> MPColor? {
-        if(count(input) == 3){
-            return self.init(color: UIColor(rgbaSmall: input), startIndex: startIndex)
+        if(input.characters.count == 3){
+            return MPColor.init(color: UIColor(rgbaSmall: input), startIndex: startIndex)
         }
         return nil
     }
@@ -37,9 +37,9 @@ extension UIColor {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
-        var alpha: CGFloat = 1.0
+        let alpha: CGFloat = 1.0
         
-        if count(rgbaSmall) == 3 {
+        if rgbaSmall.characters.count == 3 {
             let hex     = rgbaSmall
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
