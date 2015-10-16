@@ -34,9 +34,6 @@ class MPStyle:MPStyles {
             break
         case .Shadow:
             break
-        default:
-            self.font = UIFont.systemFontOfSize(fontSize)
-            break
         }
         
         super.init(start: startIndex)
