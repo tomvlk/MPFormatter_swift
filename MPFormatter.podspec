@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MPFormatter"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "ManiaPlanet Dollar style parser."
 
   s.description  = <<-DESC
