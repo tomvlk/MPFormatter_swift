@@ -1,9 +1,10 @@
 language: objective-c
 osx_image: xcode7
 
-before_install: 
+before_install:
 - brew update
 - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
-script: 
-- xctool clean build -project MPFormatter.xcodeproj -scheme MPFormatter CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+script:
+- xctool clean build -project MPFormatter.xcodeproj -scheme "MPFormatter iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- xctool clean build -project MPFormatter.xcodeproj -scheme "MPFormatter tvOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
