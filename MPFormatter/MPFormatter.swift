@@ -19,7 +19,7 @@ public class MPFormatter {
     var links:[MPLink] = []
     var ignore:[Int] = []
     
-    var fontSize:CGFloat = UIFont.systemFontSize()
+    var fontSize:CGFloat = 12
     
     public init() {
         

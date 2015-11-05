@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MPFormatter.xcscheme_^#shared#^_</key>
+		<key>MPFormatter iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>MPFormatter tvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>MPFormatterTests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,6 +22,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FC892F791BD5748F006B3420</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC892F8C1BD57645006B3420</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC892F9A1BD576EE006B3420</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FC9ACDFB1AA5D8A900C2915B</key>
 		<dict>
 			<key>primary</key>

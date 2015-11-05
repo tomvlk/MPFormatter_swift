@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC9ACE021AA5D8A900C2915B /* MPFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9ACE011AA5D8A900C2915B /* MPFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC892FA31BD577DE006B3420 /* MPStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1B1AA5D97D00C2915B /* MPStyles.swift */; };
+		FC892FA41BD577DE006B3420 /* MPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1D1AA5D99600C2915B /* MPColor.swift */; };
+		FC892FA51BD577DE006B3420 /* MPStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1F1AA5D9E900C2915B /* MPStyle.swift */; };
+		FC892FA61BD577DE006B3420 /* MPLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE211AA5DA2A00C2915B /* MPLink.swift */; };
+		FC892FA71BD577DE006B3420 /* MPFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE231AA5DA4400C2915B /* MPFormatter.swift */; };
+		FC892FA81BD577E7006B3420 /* MPFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9ACE011AA5D8A900C2915B /* MPFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC892FA91BD5780D006B3420 /* MPFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9ACE011AA5D8A900C2915B /* MPFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC9ACE1C1AA5D97D00C2915B /* MPStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1B1AA5D97D00C2915B /* MPStyles.swift */; };
 		FC9ACE1E1AA5D99600C2915B /* MPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1D1AA5D99600C2915B /* MPColor.swift */; };
 		FC9ACE201AA5D9E900C2915B /* MPStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9ACE1F1AA5D9E900C2915B /* MPStyle.swift */; };
@@ -16,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC892F9B1BD576EE006B3420 /* MPFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC892F9F1BD576EE006B3420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9ACE001AA5D8A900C2915B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC9ACE011AA5D8A900C2915B /* MPFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFormatter.h; sourceTree = "<group>"; };
@@ -27,6 +35,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FC892F971BD576EE006B3420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC9ACDF81AA5D8A900C2915B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +52,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC892F9C1BD576EE006B3420 /* MPFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				FC892F9F1BD576EE006B3420 /* Info.plist */,
+			);
+			path = MPFormatter;
+			sourceTree = "<group>";
+		};
 		FC9ACDF21AA5D8A900C2915B = {
 			isa = PBXGroup;
 			children = (
 				FC9ACDFE1AA5D8A900C2915B /* MPFormatter */,
+				FC892F9C1BD576EE006B3420 /* MPFormatter */,
 				FC9ACDFD1AA5D8A900C2915B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */,
+				FC892F9B1BD576EE006B3420 /* MPFormatter.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,20 +111,46 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		FC892F981BD576EE006B3420 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC892FA81BD577E7006B3420 /* MPFormatter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC9ACDF91AA5D8A900C2915B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9ACE021AA5D8A900C2915B /* MPFormatter.h in Headers */,
+				FC892FA91BD5780D006B3420 /* MPFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FC9ACDFB1AA5D8A900C2915B /* MPFormatter */ = {
+		FC892F9A1BD576EE006B3420 /* MPFormatter tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC9ACE121AA5D8AA00C2915B /* Build configuration list for PBXNativeTarget "MPFormatter" */;
+			buildConfigurationList = FC892FA01BD576EE006B3420 /* Build configuration list for PBXNativeTarget "MPFormatter tvOS" */;
+			buildPhases = (
+				FC892F961BD576EE006B3420 /* Sources */,
+				FC892F971BD576EE006B3420 /* Frameworks */,
+				FC892F981BD576EE006B3420 /* Headers */,
+				FC892F991BD576EE006B3420 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MPFormatter tvOS";
+			productName = MPFormatter;
+			productReference = FC892F9B1BD576EE006B3420 /* MPFormatter.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FC9ACDFB1AA5D8A900C2915B /* MPFormatter iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC9ACE121AA5D8AA00C2915B /* Build configuration list for PBXNativeTarget "MPFormatter iOS" */;
 			buildPhases = (
 				FC9ACDF71AA5D8A900C2915B /* Sources */,
 				FC9ACDF81AA5D8A900C2915B /* Frameworks */,
@@ -110,7 +161,7 @@
 			);
 			dependencies = (
 			);
-			name = MPFormatter;
+			name = "MPFormatter iOS";
 			productName = MPFormatter;
 			productReference = FC9ACDFC1AA5D8A900C2915B /* MPFormatter.framework */;
 			productType = "com.apple.product-type.framework";
@@ -123,9 +174,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Tom Valk";
 				TargetAttributes = {
+					FC892F9A1BD576EE006B3420 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					FC9ACDFB1AA5D8A900C2915B = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -143,12 +197,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC9ACDFB1AA5D8A900C2915B /* MPFormatter */,
+				FC9ACDFB1AA5D8A900C2915B /* MPFormatter iOS */,
+				FC892F9A1BD576EE006B3420 /* MPFormatter tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FC892F991BD576EE006B3420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC9ACDFA1AA5D8A900C2915B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +221,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FC892F961BD576EE006B3420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC892FA31BD577DE006B3420 /* MPStyles.swift in Sources */,
+				FC892FA41BD577DE006B3420 /* MPColor.swift in Sources */,
+				FC892FA51BD577DE006B3420 /* MPStyle.swift in Sources */,
+				FC892FA61BD577DE006B3420 /* MPLink.swift in Sources */,
+				FC892FA71BD577DE006B3420 /* MPFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC9ACDF71AA5D8A900C2915B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +248,54 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		FC892FA11BD576EE006B3420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MPFormatter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.tvalk.MPFormatter;
+				PRODUCT_NAME = MPFormatter;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		FC892FA21BD576EE006B3420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MPFormatter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.tvalk.MPFormatter;
+				PRODUCT_NAME = MPFormatter;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		FC9ACE101AA5D8AA00C2915B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -195,6 +317,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -213,6 +336,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -252,6 +376,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -276,7 +401,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tvalk.MPFormatter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MPFormatter;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -299,7 +424,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tvalk.MPFormatter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MPFormatter;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -307,6 +432,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FC892FA01BD576EE006B3420 /* Build configuration list for PBXNativeTarget "MPFormatter tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC892FA11BD576EE006B3420 /* Debug */,
+				FC892FA21BD576EE006B3420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FC9ACDF61AA5D8A900C2915B /* Build configuration list for PBXProject "MPFormatter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -316,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC9ACE121AA5D8AA00C2915B /* Build configuration list for PBXNativeTarget "MPFormatter" */ = {
+		FC9ACE121AA5D8AA00C2915B /* Build configuration list for PBXNativeTarget "MPFormatter iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC9ACE131AA5D8AA00C2915B /* Debug */,

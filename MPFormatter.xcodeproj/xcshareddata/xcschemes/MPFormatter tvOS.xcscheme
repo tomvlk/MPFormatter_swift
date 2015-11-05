@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
-               BuildableName = "MPFormatterTests.xctest"
-               BlueprintName = "MPFormatterTests"
+               BlueprintIdentifier = "FC892F9A1BD576EE006B3420"
+               BuildableName = "MPFormatter.framework"
+               BlueprintName = "MPFormatter tvOS"
                ReferencedContainer = "container:MPFormatter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
-               BuildableName = "MPFormatterTests.xctest"
-               BlueprintName = "MPFormatterTests"
-               ReferencedContainer = "container:MPFormatter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
-            BuildableName = "MPFormatterTests.xctest"
-            BlueprintName = "MPFormatterTests"
-            ReferencedContainer = "container:MPFormatter.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
-            BuildableName = "MPFormatterTests.xctest"
-            BlueprintName = "MPFormatterTests"
+            BlueprintIdentifier = "FC892F9A1BD576EE006B3420"
+            BuildableName = "MPFormatter.framework"
+            BlueprintName = "MPFormatter tvOS"
             ReferencedContainer = "container:MPFormatter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCC12C8D1AC34BED00221A56"
-            BuildableName = "MPFormatterTests.xctest"
-            BlueprintName = "MPFormatterTests"
+            BlueprintIdentifier = "FC892F9A1BD576EE006B3420"
+            BuildableName = "MPFormatter.framework"
+            BlueprintName = "MPFormatter tvOS"
             ReferencedContainer = "container:MPFormatter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
