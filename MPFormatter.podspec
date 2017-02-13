@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "MPFormatter"
-  s.version      = "1.1.1"
-  s.summary      = "ManiaPlanet Dollar style parser."
+  s.version      = "1.2.0"
+  s.summary      = "ManiaPlanet Style Parser."
 
-  s.description  = "ManiaPlanet Dollar style parser. See github repo for small documentation and examples on how to use."
+  s.description  = "ManiaPlanet Style Parser. See Github repo for small documentation and examples on how to use."
 
   s.homepage     = "https://github.com/tomvlk/MPFormatter_swift"
 
