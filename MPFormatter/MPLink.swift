@@ -10,15 +10,15 @@ import UIKit
 
 class MPLink:MPStyles {
     
-    private var destination:NSURL
+    private var destination:URL
     
-    init(destination:NSURL, startIndex:Int) {
+    init(destination:URL, startIndex:Int) {
         self.destination = destination
         
         super.init(start: startIndex)
     }
     
-    func apply(inout attr:NSMutableAttributedString) {
+    func apply(_ attr:inout NSMutableAttributedString) {
         if(self.end != 0){
             attr.addAttribute(NSLinkAttributeName, value: self.destination, range: NSRange(location: self.start, length: self.end - self.start))
         }

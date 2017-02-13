@@ -17,31 +17,31 @@ class MPStyle:MPStyles {
         self.style = style
         
         switch(self.style){
-        case .Bold:
-            self.font = UIFont.boldSystemFontOfSize(fontSize)
+        case .bold:
+            self.font = UIFont.boldSystemFont(ofSize: fontSize)
             break
-        case .Big:
-            self.font = UIFont.systemFontOfSize(fontSize + CGFloat(4))
+        case .big:
+            self.font = UIFont.systemFont(ofSize: fontSize + CGFloat(4))
             break
-        case .Italic:
-            self.font = UIFont.italicSystemFontOfSize(fontSize)
+        case .italic:
+            self.font = UIFont.italicSystemFont(ofSize: fontSize)
             break
-        case .Small:
-            self.font = UIFont.systemFontOfSize(fontSize - CGFloat(4))
+        case .small:
+            self.font = UIFont.systemFont(ofSize: fontSize - CGFloat(4))
             break
-        case .Wide:
-            self.font = UIFont.systemFontOfSize(fontSize + CGFloat(6))
+        case .wide:
+            self.font = UIFont.systemFont(ofSize: fontSize + CGFloat(6))
             break
-        case .Shadow:
+        case .shadow:
             break
         }
         
         super.init(start: startIndex)
     }
     
-    func apply(inout attr:NSMutableAttributedString) {
+    func apply(_ attr:inout NSMutableAttributedString) {
         if(self.end != 0){
-            if(self.style == .Bold){
+            if(self.style == .bold){
                 attr.addAttribute(NSFontAttributeName, value: self.font, range: NSRange(location: self.start, length: self.end - self.start))
             }
         }

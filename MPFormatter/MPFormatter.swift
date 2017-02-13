@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public enum MPFontStyle {
-    case Italic, Bold, Shadow, Wide, Big, Small
+    case italic, bold, shadow, wide, big, small
 }
 
 public class MPFormatter {
@@ -72,7 +72,7 @@ public class MPFormatter {
         
         /// Get Attributed String back
         /// - returns: Attributed String
-        public func getAttributedString() -> NSAttributedString {
+        public func getAttributedString() -> AttributedString {
             return self.parseFormatted(self.output)
         }
         
@@ -82,12 +82,12 @@ public class MPFormatter {
             return self.output
         }
         
-        private func parseFormatted(output:String) -> NSAttributedString {
+        private func parseFormatted(_ output:String) -> AttributedString {
             // Make the mutable attributed string
             var outputStyled = NSMutableAttributedString(string: self.output)
             
             // Apply default font
-            let defaultFont = UIFont.systemFontOfSize(formatter.fontSize)
+            let defaultFont = UIFont.systemFont(ofSize: formatter.fontSize)
             outputStyled.addAttribute(NSFontAttributeName, value: defaultFont, range: NSRange(location: 0, length: outputStyled.length))
             
             // Apply colors
@@ -129,13 +129,13 @@ public class MPFormatter {
     /// - parameter input: The input string with $ styles
     ///
     /// - returns: MPFormattedString
-    public func parse(input:String) -> MPFormattedString {
+    public func parse(_ input:String) -> MPFormattedString {
         var output:String = ""
         
         // Parse the styles in the input string
-        for (idx, char) in input.characters.enumerate() {
+        for (idx, char) in input.characters.enumerated() {
             if(char == "$" && input.characters.count > idx+1){
-                let type = input.substringWithRange(Range<String.Index>(start: input.startIndex.advancedBy(idx + 1), end: input.startIndex.advancedBy(idx + 2)))
+                let type = input.substring(with: (input.characters.index(input.startIndex, offsetBy: idx + 1) ..< input.characters.index(input.startIndex, offsetBy: idx + 2)))
                 
                 // By default, always skip next char
                 ignore.append(idx + 1)
@@ -148,13 +148,13 @@ public class MPFormatter {
                     
                     // Get destination
                     if(input.characters.count > idx + 2){
-                        let after = input.substringWithRange(Range<String.Index>(start: input.startIndex.advancedBy(idx + 2), end: input.startIndex.advancedBy(idx + 3)))
+                        let after = input.substring(with: (input.characters.index(input.startIndex, offsetBy: idx + 2) ..< input.characters.index(input.startIndex, offsetBy: idx + 3)))
                         if(after == "[" && input.characters.count > idx + 3) {
                             // link invisible
                             // Get end position (])
-                            if let endPoint: Range<String.Index> = input.rangeOfString("]", options: NSStringCompareOptions(), range: Range<String.Index>(start: input.startIndex.advancedBy(idx + 3), end: input.endIndex), locale: nil) {
-                                let url = input.substringWithRange(Range<String.Index>(start: input.startIndex.advancedBy(idx + 3), end: endPoint.endIndex.predecessor()))
-                                if let urlDest = NSURL(string: url) {
+                            if let endPoint: Range<String.Index> = input.range(of: "]", options: NSString.CompareOptions(), range: (input.characters.index(input.startIndex, offsetBy: idx + 3) ..< input.endIndex), locale: nil) {
+                                let url = input.substring(with: (input.characters.index(input.startIndex, offsetBy: idx + 3) ..< endPoint.lowerBound)) // .index(before: endPoint.endIndex)
+                                if let urlDest = URL(string: url) {
                                     let link = MPLink(destination: urlDest, startIndex: output.characters.count)
                                     self.links.append(link)
                                 }
@@ -176,38 +176,38 @@ public class MPFormatter {
                     
                     // Small
                 case "n", "N":
-                    self.stopAllStylesOfType(MPFontStyle.Big, endIndex: output.characters.count)
-                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: output.characters.count)
-                    self.stopAllStylesOfType(MPFontStyle.Small, endIndex: output.characters.count)
-                    let styl = MPStyle(style: MPFontStyle.Small, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.big, endIndex: output.characters.count)
+                    self.stopAllStylesOfType(MPFontStyle.wide, endIndex: output.characters.count)
+                    self.stopAllStylesOfType(MPFontStyle.small, endIndex: output.characters.count)
+                    let styl = MPStyle(style: MPFontStyle.small, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Italic
                 case "i", "I":
-                    self.stopAllStylesOfType(MPFontStyle.Italic, endIndex: output.characters.count)
-                    let styl = MPStyle(style: MPFontStyle.Italic, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.italic, endIndex: output.characters.count)
+                    let styl = MPStyle(style: MPFontStyle.italic, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Bold
                 case "o", "O":
-                    self.stopAllStylesOfType(MPFontStyle.Bold, endIndex: output.characters.count)
-                    let styl = MPStyle(style: MPFontStyle.Bold, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.bold, endIndex: output.characters.count)
+                    let styl = MPStyle(style: MPFontStyle.bold, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                     
                     // Shadow
                 case "s", "S":
-                    self.stopAllStylesOfType(MPFontStyle.Shadow, endIndex: output.characters.count)
+                    self.stopAllStylesOfType(MPFontStyle.shadow, endIndex: output.characters.count)
                     //let styl = MPStyle(style: MPFontStyle.Shadow, startIndex: countElements(output), fontSize: CGFloat(fontSize))
                     //self.styles.append(styl)
                     break
                     
                     // Wide
                 case "w", "W":
-                    self.stopAllStylesOfType(MPFontStyle.Wide, endIndex: output.characters.count)
-                    let styl = MPStyle(style: MPFontStyle.Wide, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
+                    self.stopAllStylesOfType(MPFontStyle.wide, endIndex: output.characters.count)
+                    let styl = MPStyle(style: MPFontStyle.wide, startIndex: output.characters.count, fontSize: CGFloat(fontSize))
                     self.styles.append(styl)
                     break
                 case "g", "G":
@@ -226,7 +226,7 @@ public class MPFormatter {
                     self.stopAllColors(output.characters.count)
                     
                     if(input.characters.count > idx+3){
-                        let colorstring = input.substringWithRange(Range<String.Index>(start: input.startIndex.advancedBy(idx + 1), end: input.startIndex.advancedBy(idx + 4)))
+                        let colorstring = input.substring(with: (input.characters.index(input.startIndex, offsetBy: idx + 1) ..< input.characters.index(input.startIndex, offsetBy: idx + 4)))
                         if let color = MPColor.isColor(colorstring, startIndex: output.characters.count) {
                             colors.append(color)
                             ignore.append(idx + 2)
@@ -237,7 +237,7 @@ public class MPFormatter {
                     
                 }
             }else{
-                if let _ = ignore.indexOf(idx) {
+                if let _ = ignore.index(of: idx) {
                     // Skip this char
                 }else{
                     output.append(char)
@@ -256,7 +256,7 @@ public class MPFormatter {
         return MPFormattedString(fromFormatter: self, outputString: output)
     }
     
-    private func stopAllLinks(endIndex:Int) {
+    private func stopAllLinks(_ endIndex:Int) {
         for item in self.links {
             if(item.end == 0){
                 item.end = endIndex
@@ -264,7 +264,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllColors(endIndex:Int) {
+    private func stopAllColors(_ endIndex:Int) {
         for item in self.colors {
             if(item.end == 0){
                 item.end = endIndex
@@ -272,7 +272,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllStyles(endIndex:Int) {
+    private func stopAllStyles(_ endIndex:Int) {
         for item in self.styles {
             if(item.end == 0){
                 item.end = endIndex
@@ -280,7 +280,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllStylesOfType(type:MPFontStyle, endIndex:Int) {
+    private func stopAllStylesOfType(_ type:MPFontStyle, endIndex:Int) {
         for item in self.styles {
             if(item.end == 0 && item.style == type){
                 item.end = endIndex
