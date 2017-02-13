@@ -2,7 +2,7 @@
 //  MPFormatter.swift
 //  MPFormatter
 //
-//  MIT Licensed, 2015, Tom Valk
+//  MIT Licensed, 2017, Tom Valk
 //
 
 import Foundation
@@ -12,7 +12,7 @@ public enum MPFontStyle {
     case italic, bold, shadow, wide, big, small
 }
 
-public class MPFormatter {
+open class MPFormatter {
     
     var colors:[MPColor] = []
     var styles:[MPStyle] = []
@@ -29,14 +29,14 @@ public class MPFormatter {
         self.fontSize = fontSize
     }
     
-    public class MPFormattedString {
+    open class MPFormattedString {
         
-        private var formatter:MPFormatter
-        private var output:String
+        fileprivate var formatter:MPFormatter
+        fileprivate var output:String
         
-        private var parseColors = true
-        private var parseLinks = true
-        private var parseStyles = true
+        fileprivate var parseColors = true
+        fileprivate var parseLinks = true
+        fileprivate var parseStyles = true
         
         init(fromFormatter: MPFormatter, outputString:String) {
             self.formatter = fromFormatter
@@ -44,14 +44,14 @@ public class MPFormatter {
         }
         
         /// Strip all the links
-        public func stripLinks() -> MPFormattedString {
+        open func stripLinks() -> MPFormattedString {
             self.parseLinks = false
             return self
         }
         
         /// Strip all the styles, links and colors
         /// You can also use getString() to only get the plain text string back
-        public func stripAll() -> MPFormattedString {
+        open func stripAll() -> MPFormattedString {
             self.parseColors = false
             self.parseLinks = false
             self.parseStyles = false
@@ -59,30 +59,30 @@ public class MPFormatter {
         }
         
         /// Strip all styles
-        public func stripStyles() -> MPFormattedString {
+        open func stripStyles() -> MPFormattedString {
             self.parseStyles = false
             return self
         }
         
         /// Strip all colors
-        public func stripColors() -> MPFormattedString {
+        open func stripColors() -> MPFormattedString {
             self.parseColors = false
             return self
         }
         
         /// Get Attributed String back
         /// - returns: Attributed String
-        public func getAttributedString() -> AttributedString {
+        open func getAttributedString() -> NSAttributedString {
             return self.parseFormatted(self.output)
         }
         
         /// Get Plain String back
         /// - returns: Stripped string
-        public func getString() -> String {
+        open func getString() -> String {
             return self.output
         }
         
-        private func parseFormatted(_ output:String) -> AttributedString {
+        fileprivate func parseFormatted(_ output:String) -> NSAttributedString {
             // Make the mutable attributed string
             var outputStyled = NSMutableAttributedString(string: self.output)
             
@@ -129,7 +129,7 @@ public class MPFormatter {
     /// - parameter input: The input string with $ styles
     ///
     /// - returns: MPFormattedString
-    public func parse(_ input:String) -> MPFormattedString {
+    open func parse(_ input:String) -> MPFormattedString {
         var output:String = ""
         
         // Parse the styles in the input string
@@ -256,7 +256,7 @@ public class MPFormatter {
         return MPFormattedString(fromFormatter: self, outputString: output)
     }
     
-    private func stopAllLinks(_ endIndex:Int) {
+    fileprivate func stopAllLinks(_ endIndex:Int) {
         for item in self.links {
             if(item.end == 0){
                 item.end = endIndex
@@ -264,7 +264,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllColors(_ endIndex:Int) {
+    fileprivate func stopAllColors(_ endIndex:Int) {
         for item in self.colors {
             if(item.end == 0){
                 item.end = endIndex
@@ -272,7 +272,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllStyles(_ endIndex:Int) {
+    fileprivate func stopAllStyles(_ endIndex:Int) {
         for item in self.styles {
             if(item.end == 0){
                 item.end = endIndex
@@ -280,7 +280,7 @@ public class MPFormatter {
         }
     }
     
-    private func stopAllStylesOfType(_ type:MPFontStyle, endIndex:Int) {
+    fileprivate func stopAllStylesOfType(_ type:MPFontStyle, endIndex:Int) {
         for item in self.styles {
             if(item.end == 0 && item.style == type){
                 item.end = endIndex

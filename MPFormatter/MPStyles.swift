@@ -2,7 +2,7 @@
 //  MPStyles.swift
 //  MPFormatter
 //
-//  MIT Licensed, 2015, Tom Valk
+//  MIT Licensed, 2017, Tom Valk
 //
 
 import Foundation
@@ -16,4 +16,3 @@ class MPStyles {
         self.start = start
     }
 }
-

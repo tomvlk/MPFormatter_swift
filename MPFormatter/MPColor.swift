@@ -2,7 +2,7 @@
 //  MPColor.swift
 //  MPFormatter
 //
-//  MIT Licensed, 2015, Tom Valk
+//  MIT Licensed, 2017, Tom Valk
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import UIKit
 
 class MPColor:MPStyles {
     
-    private var color:UIColor
+    fileprivate var color:UIColor
     
     init(color:UIColor, startIndex:Int){
         self.color = color

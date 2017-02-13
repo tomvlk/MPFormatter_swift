@@ -2,7 +2,7 @@
 //  MPLink.swift
 //  MPFormatter
 //
-//  MIT Licensed, 2015, Tom Valk
+//  MIT Licensed, 2017, Tom Valk
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import UIKit
 
 class MPLink:MPStyles {
     
-    private var destination:URL
+    fileprivate var destination:URL
     
     init(destination:URL, startIndex:Int) {
         self.destination = destination

@@ -2,7 +2,7 @@
 //  MPStyle.swift
 //  MPFormatter
 //
-//  MIT Licensed, 2015, Tom Valk
+//  MIT Licensed, 2017, Tom Valk
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import UIKit
 
 class MPStyle:MPStyles {
     
-    private var font:UIFont = UIFont()
+    fileprivate var font:UIFont = UIFont()
     var style:MPFontStyle
     
     init(style:MPFontStyle, startIndex:Int, fontSize:CGFloat) {
@@ -47,4 +47,3 @@ class MPStyle:MPStyles {
         }
     }
 }
-

@@ -179,7 +179,7 @@
 				TargetAttributes = {
 					FC892F9A1BD576EE006B3420 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					FC9ACDFB1AA5D8A900C2915B = {
 						CreatedOnToolsVersion = 6.1.1;
