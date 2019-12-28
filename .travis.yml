@@ -14,4 +14,4 @@ osx_image: xcode11.2
 #  - swift package generate-xcodeproj
 
 script:
-  - xcodebuild -workspace .swiftpm/xcode/package.xcworkspace -scheme MPFormatter -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.2' test
+  - xcodebuild -workspace .swiftpm/xcode/package.xcworkspace -scheme MPFormatter -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XS,OS=12.1' test
