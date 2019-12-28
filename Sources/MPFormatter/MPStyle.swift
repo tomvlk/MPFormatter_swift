@@ -42,7 +42,7 @@ class MPStyle:MPStyles {
     func apply(_ attr:inout NSMutableAttributedString) {
         if(self.end != 0){
             if(self.style == .bold){
-                attr.addAttribute(NSFontAttributeName, value: self.font, range: NSRange(location: self.start, length: self.end - self.start))
+                attr.addAttribute(NSAttributedString.Key.font, value: self.font, range: NSRange(location: self.start, length: self.end - self.start))
             }
         }
     }

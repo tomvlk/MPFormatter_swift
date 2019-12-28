@@ -20,12 +20,12 @@ class MPColor:MPStyles {
     
     func apply(_ attr:inout NSMutableAttributedString) {
         if(self.end != 0){
-            attr.addAttribute(NSForegroundColorAttributeName, value: self.color, range: NSRange(location: self.start, length: self.end - self.start))
+            attr.addAttribute(NSAttributedString.Key.foregroundColor, value: self.color, range: NSRange(location: self.start, length: self.end - self.start))
         }
     }
     
     class func isColor(_ input:String, startIndex:Int) -> MPColor? {
-        if(input.characters.count == 3){
+        if(input.count == 3){
             return MPColor.init(color: UIColor(rgbaSmall: input), startIndex: startIndex)
         }
         return nil
@@ -39,7 +39,7 @@ extension UIColor {
         var blue:  CGFloat = 0.0
         let alpha: CGFloat = 1.0
         
-        if rgbaSmall.characters.count == 3 {
+        if rgbaSmall.count == 3 {
             let hex     = rgbaSmall
             let scanner = Scanner(string: hex)
             var hexValue: CUnsignedLongLong = 0

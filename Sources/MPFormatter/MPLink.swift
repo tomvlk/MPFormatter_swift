@@ -20,7 +20,7 @@ class MPLink:MPStyles {
     
     func apply(_ attr:inout NSMutableAttributedString) {
         if(self.end != 0){
-            attr.addAttribute(NSLinkAttributeName, value: self.destination, range: NSRange(location: self.start, length: self.end - self.start))
+            attr.addAttribute(NSAttributedString.Key.link, value: self.destination, range: NSRange(location: self.start, length: self.end - self.start))
         }
     }
 }
