@@ -6,24 +6,8 @@ A ManiaPlanet Color Style parser and formatter for Swift
 ## Installation ##
 To install the formatter you have two options:
 
-##### CocoaPods
-Add the following line to the podfile, do a pod install or update, then use the xcodeworkspace and use with import MPFormatter in your code:
-
-```
-pod 'MPFormatter', '~> 1.0.0'
-```
-
-
-##### Manual
-
- 1. Copy the files to a directory in your project folder
- 2. Drag and drop the xcodeproj file to the project navigator, just under your app project
- 3. Go to your App target
- 4. Click on the + in the general tab under embedded binaries
- 5. Select MPFormatter and click OK
- 6. Now you can use MPFormatter with import MPFormatter
-
-
+##### Swift Package Dependency
+Add the Github Clone URL as your dependency with XCode wizard to add Swift Package. Use package version 2 and higher.
 
 ## Usage ##
 To use the framework:
